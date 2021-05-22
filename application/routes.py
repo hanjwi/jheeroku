@@ -25,7 +25,7 @@ def strokeclassify():
     hypertension = request.form.get("hypertension")
     heart_desease = request.form.get("heart_desease")
     input_data = json.dumps({"age": age, "avg_glucose_level": avg_glucose_level, "bmi": bmi, "gender": gender, "married": married, "work_type": work_type, "Residence_type": Residence_type, "smoking_status": smoking_status, "hypertension": hypertension, "heart_desease": heart_desease})
-    url = "http://localhost:5000/api"
+    url = "https://heroku-test-stroke-model.herokuapp.com/api"
     results = requests.post(url, input_data)
     return render_template("index.html", age = age, avg_glucose_level = avg_glucose_level, bmi=bmi, gender=gender, married=married, work_type=work_type, Residence_type=Residence_type, smoking_status=smoking_status, hypertension=hypertension, heart_desease = heart_desease, results = results.content.decode('UTF-8'))
 
